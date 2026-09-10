@@ -25,6 +25,7 @@ const serifFont = Playfair_Display({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://resham-ai.vercel.app"),
   title: "RESHAM — Textile Operations Management Platform",
   description:
     "Run your entire textile operation from one connected platform. Manage orders, production, materials, inventory, purchasing and business operations across web and mobile.",
