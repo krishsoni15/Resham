@@ -20,12 +20,12 @@ export const navigation = {
 
 // -- Hero ---------------------------------------------------------------------
 export const hero = {
-  eyebrow: "TEXTILE OPERATIONS MANAGEMENT",
-  headline: "Run your entire textile operation from one connected platform.",
+  eyebrow: "FROM YARN TO YOUR NEXT GROWTH",
+  headline: "The New Standard in Textile Operations.",
   description:
-    "Orders, production, materials, inventory, purchasing and business operations — connected in one system.",
+    "Manage sales orders, yarn procurement, grey fabric inventory, mill dyeing & printing dispatches, finish roll stock, and real-time enterprise analytics — connected in one unified platform.",
   primaryCta: { label: "Book a Free 21-Day Demo", href: "#demo-form" },
-  secondaryCta: { label: "Explore the Platform", href: "#product" },
+  secondaryCta: { label: "Explore Live Platform", href: "#product" },
   existingUserCta: { label: "Open Platform", href: "#" },
 };
 

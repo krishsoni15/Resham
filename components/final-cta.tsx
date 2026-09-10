@@ -40,14 +40,11 @@ export default function FinalCTA() {
                   />
                 </div>
               </div>
-              <span className="text-xs font-bold tracking-[0.2em] text-[#E8D5C8] uppercase block">
-                READY TO SEE THE DIFFERENCE?
-              </span>
               <h2 className="text-2xl md:text-4xl font-extrabold text-white tracking-tight">
-                Start your 21-day demo today.
+                The New Standard in Textile Operations.
               </h2>
               <p className="text-sm md:text-base text-[#D0C5B8] max-w-xl">
-                Explore RESHAM with your own data and see how it can fit your business.
+                Experience RESHAM AI with your actual operational data and see how it transforms your textile business.
               </p>
             </div>
 

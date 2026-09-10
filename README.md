@@ -1,7 +1,8 @@
 # 🧵 RESHAM AI — Enterprise Textile Operations OS
 
-> **The Connected Operating System for Modern Textile Manufacturers, Mill Processing, and Fabric Traders.**  
-> Run sales orders, yarn procurement, grey fabric (Kora Kapda) inventory, mill dyeing/printing dispatch, finish stock, and enterprise analytics from a single unified platform.
+> **From Yarn to Your Next Growth.**  
+> *The Connected Operating System for Modern Textile Manufacturers, Mill Processing Units, and Fabric Exporters.*  
+> Streamline sales order lifecycles, yarn procurement, grey fabric (Kora Kapda) inventory, mill dyeing & printing dispatches, finish roll stock, and real-time enterprise analytics from a single unified platform.
 
 ---
 

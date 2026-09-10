@@ -470,12 +470,20 @@ export default function PlatformShowcase() {
   const activePage = PLATFORM_PAGES[activePageIndex];
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  // Auto-scroll selected node into view
+  const isFirstRender = useRef(true);
+
+  // Auto-scroll selected node into view ONLY on container track when user changes tab, NOT window on page load
   useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
     if (scrollContainerRef.current) {
       const activeEl = scrollContainerRef.current.children[activePageIndex] as HTMLElement;
       if (activeEl) {
-        activeEl.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+        const container = scrollContainerRef.current;
+        const scrollLeftTarget = activeEl.offsetLeft - container.clientWidth / 2 + activeEl.clientWidth / 2;
+        container.scrollTo({ left: scrollLeftTarget, behavior: "smooth" });
       }
     }
   }, [activePageIndex]);

@@ -11,58 +11,73 @@ import {
   ShoppingCart,
   Users,
   BarChart3,
+  Sparkles,
+  Shield,
+  Zap,
 } from "lucide-react";
 
 export default function ProblemSolutionSection() {
   const problemPoints = [
-    "Scattered information",
-    "Manual tracking",
-    "Low visibility",
-    "Delayed decisions",
+    { title: "Scattered Information", desc: "Orders, stock and rates split across multiple sheets & registers." },
+    { title: "Manual Tracking", desc: "Constant phone calls and manual entries to get production updates." },
+    { title: "Low Stock Visibility", desc: "Hard to know exact grey material and finished lot stock in real time." },
+    { title: "Delayed Decisions", desc: "Waiting hours or days for reports leads to delayed customer deliveries." },
   ];
 
   const solutionPoints = [
-    "Single source of truth",
-    "Real-time updates",
-    "Connected workflows",
-    "Faster, better decisions",
+    { title: "Single Source of Truth", desc: "Every order, fabric quality, and PO in one central system." },
+    { title: "Real-time Updates", desc: "Instant updates flow across web, Android, iOS and PWA applications." },
+    { title: "Connected Workflows", desc: "Order -> Production -> Inventory -> Dispatch connected end-to-end." },
+    { title: "Faster, Better Decisions", desc: "Executive KPI dashboards & automatic PDF reports at your fingertips." },
   ];
 
   const coreCapabilities = [
     {
-      title: "Orders",
+      title: "Orders Engine",
       subtext: "From enquiry to delivery",
+      desc: "Multi-item pricing & style specs",
       icon: FileText,
+      badge: "Sales & Lifecycle",
     },
     {
-      title: "Production",
+      title: "Production Stage",
       subtext: "Track every stage",
+      desc: "Loom, dyeing & printing status",
       icon: Boxes,
+      badge: "Mill & Process",
     },
     {
-      title: "Inventory",
+      title: "Stock & Inventory",
       subtext: "Grey & finished stock",
+      desc: "Real-time yardage & roll count",
       icon: Package,
+      badge: "Real-time Stock",
     },
     {
-      title: "Procurement",
+      title: "Procurement & POs",
       subtext: "Suppliers & POs",
+      desc: "Automated PO PDFs & terms lock",
       icon: ShoppingCart,
+      badge: "Yarn & Raw Material",
     },
     {
-      title: "Weavers",
+      title: "Weaver Operations",
       subtext: "Manage capacity",
+      desc: "Loom allocation & inward tracking",
       icon: Users,
+      badge: "Loom & Weaver Hub",
     },
     {
-      title: "Reports",
+      title: "Reports & Documents",
       subtext: "Insights that matter",
+      desc: "Excel ledgers, PDFs & QR stickers",
       icon: BarChart3,
+      badge: "Instant Exports",
     },
   ];
 
   return (
-    <div id="solutions" className="bg-[#FAF7F2] py-20 relative overflow-hidden text-[#1C1917]">
+    <section id="solutions" className="bg-[#FAF7F2] py-20 md:py-28 relative overflow-hidden text-[#1C1917] border-b border-[#E6DFD5]">
       {/* Background Silk Texture Overlay */}
       <div
         className="absolute inset-0 opacity-[0.03] pointer-events-none"
@@ -89,129 +104,174 @@ export default function ProblemSolutionSection() {
         </svg>
       </div>
 
-      <div className="section-container relative z-10 space-y-24 max-w-6xl mx-auto">
+      <div className="section-container relative z-10 space-y-20 max-w-6xl mx-auto">
 
         {/* =========================================================================
-            SECTION 1: THE PROBLEM vs THE SOLUTION (Organic Curved Split Layout)
+            SECTION 1: THE PROBLEM vs THE SOLUTION (Luxury Glassmorphism Card Grid)
            ========================================================================= */}
-        <div className="relative py-4">
+        <div className="relative space-y-8">
+          {/* Section Eyebrow Header */}
+          <div className="text-center space-y-3 max-w-2xl mx-auto">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#9A481B]/10 border border-[#9A481B]/25 text-[#9A481B] text-xs font-bold tracking-[0.22em] uppercase">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>THE REALITY OF TEXTILE OPERATIONS</span>
+            </div>
+            <h2 className="text-3xl md:text-5xl font-extrabold text-[#1C1917] tracking-tight leading-tight">
+              Replace Operational Friction With{" "}
+              <span className="font-serif italic font-normal text-[#9A481B] border-b-2 border-[#9A481B]/30">
+                Absolute Clarity.
+              </span>
+            </h2>
+          </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch relative">
 
-            {/* LEFT COLUMN: THE PROBLEM */}
-            <div className="lg:col-span-6 space-y-6 pr-0 lg:pr-8">
-              <div className="space-y-3">
-                <span className="text-xs font-bold tracking-[0.25em] uppercase text-[#C2410C] block">
-                  THE PROBLEM
-                </span>
-                <h2 className="text-3xl md:text-5xl font-serif text-[#1C1917] tracking-tight leading-[1.12]">
-                  Important work <br />
-                  <span className="italic font-normal">gets lost in the chaos.</span>
-                </h2>
-              </div>
+            {/* LEFT COLUMN: THE PROBLEM CARD */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="lg:col-span-6 p-7 md:p-8 rounded-3xl bg-gradient-to-b from-rose-50/60 via-white to-white border border-rose-200/80 shadow-md flex flex-col justify-between"
+            >
+              <div className="space-y-6">
+                <div className="flex items-center justify-between border-b border-rose-100 pb-4">
+                  <span className="text-xs font-extrabold tracking-[0.25em] uppercase text-rose-700 bg-rose-100/70 px-3 py-1 rounded-full">
+                    WITHOUT RESHAM (THE PROBLEM)
+                  </span>
+                  <span className="text-xs font-semibold text-rose-600/80">Disconnected Tools</span>
+                </div>
 
-              <p className="text-sm md:text-base text-[#57534E] leading-relaxed font-medium max-w-md">
-                Spreadsheets, paper records and disconnected tools make it hard to get a clear view of your business.
-              </p>
+                <h3 className="text-2xl md:text-3xl font-serif text-[#1C1917] tracking-tight leading-snug">
+                  Critical work gets <span className="italic font-normal text-rose-700">buried in chaos.</span>
+                </h3>
 
-              {/* Red Circle-Minus Points */}
-              <div className="space-y-3.5 pt-2">
-                {problemPoints.map((point) => (
-                  <div key={point} className="flex items-center gap-3">
-                    <div className="w-5 h-5 rounded-full border border-rose-500 bg-rose-50/50 text-rose-600 flex items-center justify-center shrink-0">
-                      <MinusCircle className="w-3.5 h-3.5" />
+                <p className="text-sm text-[#57534E] leading-relaxed font-medium">
+                  Spreadsheets, paper registers and manual WhatsApp messages create blind spots that delay production and frustrate customers.
+                </p>
+
+                {/* Red Problem Points */}
+                <div className="space-y-4 pt-2">
+                  {problemPoints.map((item) => (
+                    <div key={item.title} className="flex items-start gap-3.5">
+                      <div className="w-6 h-6 rounded-full border border-rose-300 bg-rose-100 text-rose-600 flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
+                        <MinusCircle className="w-3.5 h-3.5" />
+                      </div>
+                      <div>
+                        <h4 className="text-sm font-bold text-[#1C1917]">{item.title}</h4>
+                        <p className="text-xs text-[#78716C] font-medium mt-0.5">{item.desc}</p>
+                      </div>
                     </div>
-                    <span className="text-sm md:text-base font-semibold text-[#292524]">
-                      {point}
-                    </span>
-                  </div>
-                ))}
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+
+            {/* CENTER CONNECTOR (Desktop Badge) */}
+            <div className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 flex-col items-center justify-center">
+              <div className="w-12 h-12 rounded-full bg-[#FAF7F2] border-2 border-[#D9CDBF] shadow-lg flex items-center justify-center text-[#9A481B]">
+                <ArrowRight className="w-5 h-5" />
               </div>
             </div>
 
-            {/* CENTER ORGANIC S-CURVE DIVIDER WITH ARROW NODE (Desktop & Tablet) */}
-            <div className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center h-[115%] z-20 pointer-events-none">
-              <svg className="h-full w-12 text-[#E6DFD5] stroke-current fill-none" viewBox="0 0 40 400" preserveAspectRatio="none">
-                <path d="M 20,0 C 35,130 5,270 20,400" strokeWidth="1.5" strokeDasharray="none" />
-              </svg>
-              <div className="absolute top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-[#FAF7F2] border border-[#D9CDBF] shadow-sm flex items-center justify-center text-[#9A481B] pointer-events-auto">
-                <ArrowRight className="w-4 h-4" />
-              </div>
-            </div>
+            {/* RIGHT COLUMN: THE SOLUTION CARD */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="lg:col-span-6 p-7 md:p-8 rounded-3xl bg-gradient-to-b from-emerald-50/60 via-white to-white border border-emerald-200/80 shadow-md flex flex-col justify-between"
+            >
+              <div className="space-y-6">
+                <div className="flex items-center justify-between border-b border-emerald-100 pb-4">
+                  <span className="text-xs font-extrabold tracking-[0.25em] uppercase text-emerald-800 bg-emerald-100/70 px-3 py-1 rounded-full">
+                    WITH RESHAM (THE SOLUTION)
+                  </span>
+                  <span className="text-xs font-semibold text-emerald-700">100% Connected</span>
+                </div>
 
-            {/* RIGHT COLUMN: THE SOLUTION */}
-            <div className="lg:col-span-6 space-y-6 pl-0 lg:pl-10 pt-8 lg:pt-0 border-t lg:border-t-0 border-[#E6DFD5]">
-              <div className="space-y-3">
-                <span className="text-xs font-bold tracking-[0.25em] uppercase text-[#672708] block">
-                  THE SOLUTION
-                </span>
-                <h2 className="text-3xl md:text-5xl font-serif text-[#1C1917] tracking-tight leading-[1.12]">
-                  One platform. <br />
-                  <span className="italic font-normal">Full clarity.</span>
-                </h2>
-              </div>
+                <h3 className="text-2xl md:text-3xl font-serif text-[#1C1917] tracking-tight leading-snug">
+                  One platform. <span className="italic font-normal text-emerald-700">Total operational control.</span>
+                </h3>
 
-              <p className="text-sm md:text-base text-[#57534E] leading-relaxed font-medium max-w-md">
-                RESHAM connects your entire workflow so you can manage everything in one place, with real-time visibility and control.
-              </p>
+                <p className="text-sm text-[#57534E] leading-relaxed font-medium">
+                  RESHAM unifies customer orders, weaver capacity, stock quantities, POs and dispatch into one real-time operational engine.
+                </p>
 
-              {/* Green Checkmark Points */}
-              <div className="space-y-3.5 pt-2">
-                {solutionPoints.map((point) => (
-                  <div key={point} className="flex items-center gap-3">
-                    <div className="w-5 h-5 rounded-full border border-emerald-500 bg-emerald-50/50 text-emerald-600 flex items-center justify-center shrink-0">
-                      <CheckCircle2 className="w-3.5 h-3.5" />
+                {/* Green Solution Points */}
+                <div className="space-y-4 pt-2">
+                  {solutionPoints.map((item) => (
+                    <div key={item.title} className="flex items-start gap-3.5">
+                      <div className="w-6 h-6 rounded-full border border-emerald-400 bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
+                        <CheckCircle2 className="w-3.5 h-3.5" />
+                      </div>
+                      <div>
+                        <h4 className="text-sm font-bold text-[#1C1917]">{item.title}</h4>
+                        <p className="text-xs text-[#78716C] font-medium mt-0.5">{item.desc}</p>
+                      </div>
                     </div>
-                    <span className="text-sm md:text-base font-semibold text-[#292524]">
-                      {point}
-                    </span>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
+            </motion.div>
 
           </div>
         </div>
 
         {/* =========================================================================
-            SECTION 2: CORE CAPABILITIES (Exact Pixel-Match to Screenshot)
+            SECTION 2: CORE CAPABILITIES (Modern Card Grid Layout)
            ========================================================================= */}
-        <div className="text-center space-y-10 pt-10 border-t border-[#E6DFD5]/60">
+        <div className="space-y-10 pt-10 border-t border-[#E6DFD5]">
 
           {/* Header */}
-          <div className="space-y-3 max-w-2xl mx-auto">
-            <span className="text-xs font-bold tracking-[0.25em] uppercase text-[#9A481B]">
-              CORE CAPABILITIES
+          <div className="text-center space-y-3 max-w-2xl mx-auto">
+            <span className="text-xs font-extrabold tracking-[0.25em] uppercase text-[#9A481B] bg-[#9A481B]/10 px-3 py-1 rounded-full border border-[#9A481B]/20">
+              CORE CAPABILITIES & MODULES
             </span>
-            <h2 className="text-3xl md:text-5xl font-serif text-[#1C1917] tracking-tight leading-[1.15]">
-              Everything your textile business needs. <br />
-              <span className="italic font-normal">Nothing you don&apos;t.</span>
+            <h2 className="text-3xl md:text-5xl font-extrabold text-[#1C1917] tracking-tight leading-tight">
+              Everything Your Textile Business Needs. <br />
+              <span className="font-serif italic font-normal text-[#9A481B]">
+                Nothing Excess.
+              </span>
             </h2>
           </div>
 
-          {/* 6 Capability Cards Grid with Clean Vertical Dividers */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-0 divide-y md:divide-y-0 md:divide-x divide-[#E6DFD5] bg-white/70 backdrop-blur-sm rounded-2xl border border-[#E6DFD5] shadow-xs overflow-hidden">
+          {/* 6 Capability Cards Grid - Clean Gap Layout */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {coreCapabilities.map((item, index) => {
               const IconComp = item.icon;
               return (
                 <motion.div
                   key={item.title}
-                  initial={{ opacity: 0, y: 12 }}
+                  initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.08 }}
-                  whileHover={{ backgroundColor: "rgba(250, 247, 242, 0.8)" }}
-                  className="flex flex-col items-center text-center p-6 transition-colors duration-200 group"
+                  whileHover={{ y: -4 }}
+                  className="p-6 rounded-2xl bg-white border border-[#E6DFD5] shadow-xs hover:shadow-xl hover:border-[#9A481B]/40 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-[#FAF5EF] border border-[#E8D9C8] text-[#9A481B] flex items-center justify-center mb-3 shadow-2xs group-hover:scale-105 transition-transform duration-200">
-                    <IconComp className="w-5 h-5 stroke-[1.75]" />
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between">
+                      <div className="w-12 h-12 rounded-xl bg-[#FAF5EF] border border-[#E8D9C8] text-[#9A481B] flex items-center justify-center shadow-2xs group-hover:bg-[#9A481B] group-hover:text-white transition-colors duration-300">
+                        <IconComp className="w-6 h-6 stroke-[1.75]" />
+                      </div>
+                      <span className="text-[10px] font-extrabold tracking-wider uppercase text-[#9A481B] bg-[#FAF5EF] px-2.5 py-1 rounded-md border border-[#E8D9C8]">
+                        {item.badge}
+                      </span>
+                    </div>
+
+                    <h3 className="text-lg font-bold text-[#1C1917] tracking-tight group-hover:text-[#9A481B] transition-colors">
+                      {item.title}
+                    </h3>
+
+                    <p className="text-xs font-semibold text-[#78716C]">
+                      {item.subtext}
+                    </p>
+
+                    <p className="text-xs text-[#57534E] leading-relaxed font-normal pt-1">
+                      {item.desc}
+                    </p>
                   </div>
-                  <h4 className="text-base font-bold text-[#1C1917] tracking-tight">
-                    {item.title}
-                  </h4>
-                  <p className="text-xs text-[#78716C] font-medium mt-1">
-                    {item.subtext}
-                  </p>
                 </motion.div>
               );
             })}
@@ -220,9 +280,10 @@ export default function ProblemSolutionSection() {
         </div>
 
       </div>
-    </div>
+    </section>
   );
 }
+
 
 
 

@@ -26,18 +26,19 @@ const serifFont = Playfair_Display({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://resham-ai.vercel.app"),
-  title: "RESHAM — Textile Operations Management Platform",
+  title: "RESHAM AI — The New Standard in Textile Operations",
   description:
-    "Run your entire textile operation from one connected platform. Manage orders, production, materials, inventory, purchasing and business operations across web and mobile.",
+    "The New Standard in Textile Operations. The connected operating system for modern textile manufacturers, mill processing, and fabric traders. Manage orders, production, materials, inventory, purchasing, and dispatches in one system.",
   icons: {
     icon: [
       { url: "/images/logo.png", type: "image/png" },
-      { url: "/favicon.ico" },
+      { url: "/icon.png", type: "image/png" },
     ],
     shortcut: "/images/logo.png",
     apple: "/images/logo.png",
   },
   keywords: [
+    "The New Standard in Textile Operations",
     "textile management software",
     "textile ERP",
     "textile manufacturing software",
@@ -47,19 +48,19 @@ export const metadata: Metadata = {
     "textile supplier management",
   ],
   openGraph: {
-    title: "RESHAM — Textile Operations Management Platform",
+    title: "RESHAM AI — The New Standard in Textile Operations",
     description:
-      "Run your entire textile operation from one connected platform. Orders, production, materials, inventory, purchasing — connected in one system.",
+      "The New Standard in Textile Operations. The connected operating system for modern textile manufacturers, mill processing, and fabric traders.",
     type: "website",
     locale: "en_IN",
-    siteName: "RESHAM",
+    siteName: "RESHAM AI",
     images: [{ url: "/images/logo.png", width: 512, height: 512, alt: "RESHAM Logo" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "RESHAM — Textile Operations Management Platform",
+    title: "RESHAM AI — The New Standard in Textile Operations",
     description:
-      "Run your entire textile operation from one connected platform.",
+      "The New Standard in Textile Operations. The connected operating system for modern textile manufacturers, mill processing, and fabric traders.",
     images: ["/images/logo.png"],
   },
   robots: {
@@ -76,6 +77,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${sansFont.variable} ${displayFont.variable} ${serifFont.variable} h-full antialiased scroll-smooth`}
     >
       <head>
@@ -102,7 +104,10 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-full flex flex-col font-sans bg-[#FBFBFA] text-[#0F172A] antialiased selection:bg-[#F59E0B]/20 selection:text-[#92400E]">
+      <body
+        suppressHydrationWarning
+        className="min-h-full flex flex-col font-sans bg-[#FBFBFA] text-[#0F172A] antialiased selection:bg-[#F59E0B]/20 selection:text-[#92400E]"
+      >
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
