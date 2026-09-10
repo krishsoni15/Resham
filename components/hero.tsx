@@ -24,7 +24,7 @@ export default function Hero() {
          ========================================================================= */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <Image
-          src="/images/hero-bg-full.jpg"
+          src="/images/hero-bg-full.png"
           alt="RESHAM Luxury Editorial Studio Scene"
           fill
           priority
