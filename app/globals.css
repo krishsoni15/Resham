@@ -1,0 +1,350 @@
+@import "tailwindcss";
+
+/* =============================================================================
+   RESHAM — Premium Design System & Design Tokens
+   Crafted for B2B Textile Business Leaders
+   ============================================================================= */
+
+:root {
+  /* Brand Palette - Luxury Warm Linen & Copper Terracotta */
+  --color-bg: #F7F5F0;
+  --color-bg-alt: #EFECE6;
+  --color-surface: #FFFFFF;
+  --color-surface-hover: #FAF8F5;
+
+  --color-bg-dark: #1E1B18;
+  --color-bg-dark-alt: #2D2823;
+  --color-surface-dark: #2D2823;
+  --color-border-dark: #423B34;
+
+  /* Primary Copper / Terracotta Accent (From Reference Image) */
+  --color-copper: #9A481B;
+  --color-copper-hover: #81350E;
+  --color-copper-dark: #672708;
+  --color-copper-light: #FBF3EC;
+  --color-copper-border: #E8D5C8;
+
+  /* Typography Colors */
+  --color-text-primary: #1C1917;
+  --color-text-secondary: #57534E;
+  --color-text-muted: #78716C;
+  --color-text-subtle: #A8A29E;
+
+  --color-text-on-dark: #F5F5F4;
+  --color-text-on-dark-secondary: #A8A29E;
+
+  /* Legacy Accent Compatibility */
+  --color-accent: #9A481B;
+  --color-accent-hover: #81350E;
+  --color-accent-dark: #672708;
+  --color-accent-light: #FBF3EC;
+  --color-accent-subtle: rgba(154, 72, 27, 0.08);
+
+  /* Status Tokens */
+  --color-emerald: #059669;
+  --color-emerald-light: #D1FAE5;
+  --color-indigo: #4F46E5;
+  --color-rose: #E11D48;
+
+  /* Borders */
+  --color-border: #E6DFD5;
+  --color-border-subtle: #F0EAE1;
+
+  /* Elevation Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(28, 25, 23, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(28, 25, 23, 0.06), 0 2px 4px -2px rgba(28, 25, 23, 0.04);
+  --shadow-lg: 0 10px 20px -3px rgba(28, 25, 23, 0.08), 0 4px 6px -4px rgba(28, 25, 23, 0.04);
+  --shadow-xl: 0 20px 30px -5px rgba(28, 25, 23, 0.12), 0 8px 10px -6px rgba(28, 25, 23, 0.05);
+  --shadow-product: 0 25px 50px -12px rgba(28, 25, 23, 0.2);
+
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Typography Fonts */
+  --font-sans: var(--font-sans-main), system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-display-main), var(--font-sans-main), sans-serif;
+  --font-serif: var(--font-serif-main), Georgia, serif;
+}
+
+@theme inline {
+  --color-background: var(--color-bg);
+  --color-foreground: var(--color-text-primary);
+  --font-sans: var(--font-sans-main);
+  --font-display: var(--font-display-main);
+  --font-serif: var(--font-serif-main);
+}
+
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+}
+
+.text-display {
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 5.5vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+
+.text-h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 4vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+}
+
+.text-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+}
+
+.text-h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2vw, 1.625rem);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+/* Layout Utilities */
+.section-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (min-width: 768px) {
+  .section-container {
+    padding: 0 40px;
+  }
+}
+
+.section-padding {
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+}
+
+/* Keyframe Animations */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes pulseGlow {
+
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: scale(1.03);
+  }
+}
+
+@keyframes floatSlow {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite;
+}
+
+.animate-text-gradient {
+  background: linear-gradient(135deg, #D97706 0%, #F59E0B 40%, #B45309 80%, #78350F 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.animate-float {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.glow-amber-lg {
+  box-shadow: 0 0 40px -5px rgba(217, 119, 6, 0.35);
+}
+
+.glow-indigo-lg {
+  box-shadow: 0 0 40px -5px rgba(79, 70, 229, 0.35);
+}
+
+.glow-emerald-sm {
+  box-shadow: 0 0 15px 0 rgba(16, 185, 129, 0.3);
+}
+
+/* Component Utilities */
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: rgba(217, 119, 6, 0.1);
+  color: #D97706;
+  border: 1px solid rgba(217, 119, 6, 0.25);
+  box-shadow: 0 2px 8px rgba(217, 119, 6, 0.12);
+}
+
+.card-glass {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-glass:hover {
+  box-shadow: 0 20px 30px -10px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(217, 119, 6, 0.3);
+  transform: translateY(-3px);
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  padding: 14px 28px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, #A84E1F 0%, #9A481B 50%, #7A3410 100%);
+  color: #FFFFFF;
+  box-shadow: 0 6px 20px rgba(154, 72, 27, 0.3);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #B55624 0%, #A84E1F 50%, #853A13 100%);
+  box-shadow: 0 8px 25px rgba(154, 72, 27, 0.45);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  padding: 14px 28px;
+  border-radius: var(--radius-md);
+  background-color: #FFFFFF;
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-bg-alt);
+  border-color: #D8D0C5;
+  transform: translateY(-1px);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  z-index: 9999;
+  padding: 12px 24px;
+  background-color: var(--color-accent);
+  color: #FFFFFF;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 16px;
+}
