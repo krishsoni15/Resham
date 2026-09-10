@@ -28,6 +28,14 @@ export const metadata: Metadata = {
   title: "RESHAM — Textile Operations Management Platform",
   description:
     "Run your entire textile operation from one connected platform. Manage orders, production, materials, inventory, purchasing and business operations across web and mobile.",
+  icons: {
+    icon: [
+      { url: "/images/logo.png", type: "image/png" },
+      { url: "/favicon.ico" },
+    ],
+    shortcut: "/images/logo.png",
+    apple: "/images/logo.png",
+  },
   keywords: [
     "textile management software",
     "textile ERP",
@@ -44,12 +52,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
     siteName: "RESHAM",
+    images: [{ url: "/images/logo.png", width: 512, height: 512, alt: "RESHAM Logo" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "RESHAM — Textile Operations Management Platform",
     description:
       "Run your entire textile operation from one connected platform.",
+    images: ["/images/logo.png"],
   },
   robots: {
     index: true,
