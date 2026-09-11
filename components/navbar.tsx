@@ -9,7 +9,7 @@ const navItems: GooeyNavItem[] = [
   { label: "Product", href: "#product" },
   { label: "Solutions", href: "#solutions" },
   { label: "Pricing", href: "#pricing" },
-  { label: "Resources", href: "#platform" }
+  { label: "Contact Us", href: "#demo-form" },
 ];
 
 export default function Navbar() {
@@ -22,7 +22,7 @@ export default function Navbar() {
       setScrolled(window.scrollY > 20);
 
       // Scroll Spy section detection
-      const sections = ["product", "solutions", "pricing", "platform"];
+      const sections = ["product", "solutions", "pricing", "demo-form"];
       const scrollPosition = window.scrollY + 200;
 
       for (let i = sections.length - 1; i >= 0; i--) {
@@ -40,21 +40,16 @@ export default function Navbar() {
 
   return (
     <header className="fixed top-3 sm:top-4 left-0 right-0 z-50 px-3 sm:px-6 pointer-events-none">
-      <div className="max-w-6xl mx-auto pointer-events-auto">
+      <div className="max-w-[1240px] mx-auto pointer-events-auto">
         <div
-          className={`flex items-center justify-between rounded-full px-4 sm:px-6 py-2 sm:py-2.5 transition-all duration-500 relative overflow-hidden ${
-            scrolled
-              ? "bg-white/70 backdrop-blur-3xl backdrop-saturate-180 border border-white/85 ring-1 ring-black/5 shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.9),0_12px_32px_-6px_rgba(28,25,23,0.12)]"
+          className={`flex items-center justify-between rounded-full px-4 sm:px-6 py-2 sm:py-2.5 transition-all duration-500 relative overflow-hidden ${scrolled
+              ? "bg-stone-900/[0.04] backdrop-blur-xl border border-stone-900/10 shadow-sm"
               : "bg-transparent border border-transparent shadow-none"
-          }`}
+            }`}
         >
-          {/* Specular Liquid Light Refraction Sheen Overlay (Only Visible On Scroll) */}
-          <div className={`absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/50 via-white/10 to-transparent pointer-events-none rounded-t-full transition-opacity duration-500 ${
-            scrolled ? "opacity-100" : "opacity-0"
-          }`} />
 
-          {/* LEFT SIDE: RESHAM Brand Logo & Wordmark */}
-          <a href="#" className="relative z-10 flex items-center gap-2.5 group text-decoration-none py-1 shrink-0 pl-1">
+          {/* LEFT SIDE: RESHAM Brand Logo & Wordmark (Home Link) */}
+          <a href="#" className="relative z-10 flex items-center gap-2.5 group text-decoration-none py-1 shrink-0 pl-1" title="RESHAM Home">
             {/* Official RESHAM Woven Knot Logo */}
             <div className="relative w-8 h-8 sm:w-9 sm:h-9 shrink-0 group-hover:scale-105 transition-transform duration-300 drop-shadow-xs">
               <Image
@@ -80,7 +75,7 @@ export default function Navbar() {
           </a>
 
           {/* CENTER / MIDDLE: GooeyNav React Bits Component */}
-          <div className="relative z-10 hidden md:flex items-center md:absolute md:left-1/2 md:-translate-x-1/2">
+          <div className="relative z-10 hidden lg:flex items-center lg:absolute lg:left-1/2 lg:-translate-x-1/2">
             <GooeyNav
               items={navItems}
               activeCategoryIndex={activeNavIndex}
@@ -89,13 +84,13 @@ export default function Navbar() {
               particleR={80}
               animationTime={500}
               timeVariance={250}
-              colors={[1, 2, 3, 1, 2]}
+              colors={[1, 2, 3, 1]}
               onItemSelect={(index) => setActiveNavIndex(index)}
             />
           </div>
 
           {/* RIGHT SIDE: Animated Ultra-Glossy Prominent 'Book a Demo' CTA Action Button */}
-          <div className="relative z-10 hidden md:flex items-center shrink-0 pr-0.5">
+          <div className="relative z-10 hidden lg:flex items-center shrink-0 pr-0.5">
             <a
               href="#demo-form"
               className="relative inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-2.5 sm:py-3 text-xs sm:text-xs font-black text-white uppercase tracking-widest rounded-full bg-gradient-to-r from-[#9A481B] via-[#B85721] to-[#81350E] border border-white/40 shadow-lg shadow-[#9A481B]/35 hover:shadow-xl hover:shadow-[#9A481B]/50 hover:scale-105 active:scale-98 transition-all duration-300 overflow-hidden group"
@@ -104,24 +99,31 @@ export default function Navbar() {
               <span className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/35 to-transparent pointer-events-none rounded-t-full" />
               {/* Metallic Light Shimmer Sweep Effect */}
               <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/45 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
-              <span className="relative z-10">Book a Demo</span>
+              <span className="relative z-10">Book Free Demo</span>
               <ArrowRight className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform" />
             </a>
           </div>
 
-          {/* Mobile Menu Toggle Button */}
+          {/* Mobile/Tablet Menu Toggle Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="relative z-10 md:hidden p-2.5 rounded-full text-[#1C1917] hover:bg-white/80 transition-colors shrink-0 ml-auto"
+            className="relative z-10 lg:hidden p-2.5 rounded-full text-[#1C1917] hover:bg-white/80 transition-colors shrink-0 ml-auto"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
 
-        {/* Mobile Drawer Navigation */}
+        {/* Mobile & Tablet Drawer Navigation */}
         {mobileMenuOpen && (
-          <div className="mt-3 md:hidden bg-[#FAF8F5]/98 backdrop-blur-2xl border border-[#E6DFD5] rounded-3xl p-6 space-y-4 shadow-2xl">
+          <div className="mt-3 lg:hidden bg-[#FAF8F5]/98 backdrop-blur-2xl border border-[#E6DFD5] rounded-3xl p-6 space-y-4 shadow-2xl">
+            <a
+              href="#"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block text-base font-semibold text-[#1C1917] hover:text-[#9A481B] py-1"
+            >
+              Home
+            </a>
             <a
               href="#product"
               onClick={() => setMobileMenuOpen(false)}
@@ -144,11 +146,11 @@ export default function Navbar() {
               Pricing
             </a>
             <a
-              href="#platform"
+              href="#demo-form"
               onClick={() => setMobileMenuOpen(false)}
               className="block text-base font-semibold text-[#1C1917] hover:text-[#9A481B] py-1"
             >
-              Resources
+              Contact Us
             </a>
             <div className="pt-4 border-t border-[#E6DFD5]">
               <a
@@ -156,7 +158,7 @@ export default function Navbar() {
                 onClick={() => setMobileMenuOpen(false)}
                 className="relative inline-flex w-full items-center justify-center gap-2 text-sm font-extrabold text-white py-3 rounded-full bg-gradient-to-r from-[#9A481B] to-[#B85721] shadow-md shadow-[#9A481B]/30"
               >
-                <span>Book a Demo</span>
+                <span>Book Free Demo</span>
                 <ArrowRight className="w-4 h-4 ml-1" />
               </a>
             </div>

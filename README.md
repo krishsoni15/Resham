@@ -1,4 +1,4 @@
-# 🧵 RESHAM AI — Enterprise Textile Operations OS
+# 🧵 RESHAM — Enterprise Textile Operations OS
 
 > **From Yarn to Your Next Growth.**  
 > *The Connected Operating System for Modern Textile Manufacturers, Mill Processing Units, and Fabric Exporters.*  
@@ -19,7 +19,7 @@
 - [Executive Overview](#-executive-overview)
 - [💼 Client & Business Perspective](#-client--business-perspective)
   - [The Core Textile Challenge](#the-core-textile-challenge)
-  - [The Resham AI Solution](#the-resham-ai-solution)
+  - [The Resham Solution](#the-resham-solution)
   - [Business ROI & Value Proposition](#business-roi--value-proposition)
 - [🛠️ Tech Lead & Engineering Perspective](#%EF%B8%8F-tech-lead--engineering-perspective)
   - [System Architecture](#system-architecture)
@@ -37,9 +37,9 @@
 
 ## 🌟 Executive Overview
 
-**RESHAM AI** is a next-generation Textile Operations Management Platform designed specifically for textile markets (such as Surat Textile Hub, Bhiwandi, Tirupur, and international fabric exporters). 
+**RESHAM** is a next-generation Textile Operations Management Platform designed specifically for textile markets (such as Surat Textile Hub, Bhiwandi, Tirupur, and international fabric exporters). 
 
-Legacy textile businesses often rely on fragmented physical registers, disconnected WhatsApp threads, and error-prone spreadsheets to manage multi-million meter fabric pipelines. **Resham AI** bridges traditional textile trade practices with cutting-edge web architecture, providing real-time visibility from raw yarn procurement to mill process dispatch and finished fabric inventory.
+Legacy textile businesses often rely on fragmented physical registers, disconnected WhatsApp threads, and error-prone spreadsheets to manage multi-million meter fabric pipelines. **Resham** bridges traditional textile trade practices with cutting-edge web architecture, providing real-time visibility from raw yarn procurement to mill process dispatch and finished fabric inventory.
 
 ---
 
@@ -52,17 +52,17 @@ Textile operations involve high-frequency, complex variables across multiple ven
 - **Inventory Discrepancy**: Difficulty tracking meter counts, piece-wise grey stock, and shade-wise finish fabric stock.
 - **Manual Documentation**: Time-consuming manual creation of Sales Orders, Purchase Orders, Gate Passes, and Mill Delivery Slips.
 
-### The Resham AI Solution
-Resham AI digitizes the entire end-to-end fabric workflow into an intuitive, high-performance web studio:
+### The Resham Solution
+Resham digitizes the entire end-to-end fabric workflow into an intuitive, high-performance web studio:
 1. **Sales Order Lifecycle**: Instant multi-item rate engine with dyeing/printing specs, mill rates, and payment term locks.
 2. **Yarn Procurement Tracking**: FY-standard PO auto-numbering (e.g., `VF/PO/25-26/0012`), supplier allocation, and IGST structure validation.
 3. **Grey Material (Kora Kapda) Management**: Weaver inward logging, challan reconciliation, gross meter tracking, and QR code roll labeling.
 4. **Mill Dispatch & Process Control**: Real-time mill program issuance, shade matching, shrinkage audit, and delivery tracking.
 5. **Finish Goods & Warehouse Dispatch**: Meter-wise roll stock, shade grouping, dispatch challans, and customer packing slips.
-6. **AI Textile Copilot**: Conversational AI assistant for immediate inventory queries, yield estimates, and production bottleneck alerts.
+6. **Textile Operations Intelligence**: Conversational assistant for immediate inventory queries, yield estimates, and production bottleneck alerts.
 
 ### Business ROI & Value Proposition
-| Business Metric | Before Resham AI | With Resham AI | Business Impact |
+| Business Metric | Before Resham | With Resham | Business Impact |
 | :--- | :--- | :--- | :--- |
 | **Order Processing Time** | 45–60 minutes | < 3 minutes | **95% reduction** in manual entry |
 | **Mill Shrinkage Leakage** | 3.5%–5.0% lost | < 1.2% variance | Save tens of thousands per mill batch |
@@ -75,7 +75,7 @@ Resham AI digitizes the entire end-to-end fabric workflow into an intuitive, hig
 
 ### System Architecture
 
-Resham AI is engineered on **Next.js 16 (App Router)** utilizing **React 19 Server & Client Components**, designed for speed, low latency, and zero cumulative layout shift (CLS).
+Resham is engineered on **Next.js 16 (App Router)** utilizing **React 19 Server & Client Components**, designed for speed, low latency, and zero cumulative layout shift (CLS).
 
 ```
 +-----------------------------------------------------------------------+
@@ -123,15 +123,15 @@ Resham AI is engineered on **Next.js 16 (App Router)** utilizing **React 19 Serv
 
 ## 📦 10 Core Platform Modules
 
-Resham AI consolidates 10 specialized enterprise modules:
+Resham consolidates 10 specialized enterprise modules:
 
 ```
 [01. Orders Page] -------------> [02. Purchase Orders] ----------> [03. Grey Material Stock]
 Multi-item rate engine           Yarn procurement & suppliers     Raw cloth inward & QR tags
           |                                                                   |
           v                                                                   v
-[04. Mill Program] ------------> [05. Finish Stock] -------------> [06. AI Copilot]
-Dyeing/Printing dispatch         Warehouse stock & shade lots      AI stock queries & analytics
+[04. Mill Program] ------------> [05. Finish Stock] -------------> [06. Operations Hub]
+Dyeing/Printing dispatch         Warehouse stock & shade lots      Stock queries & analytics
           |                                                                   |
           v                                                                   v
 [07. Client CRM] --------------> [08. Financial Analytics] -------> [09. Enterprise Security]
@@ -147,7 +147,7 @@ Buyer credit terms & history     P&L, mill costs & rate audit      Role-based ac
 3. **Grey Material Stock (`/grey-materials`)**: Raw un-dyed cloth (Kora Kapda) inward, weaver challan verification, roll-wise meters, and QR stickers.
 4. **Mill Program Dispatch (`/mill-program`)**: Job-work dispatch to dyeing & printing mills, shade master codes, shrinkage targets, and lot tracking.
 5. **Finish Fabric Stock (`/finish-stock`)**: Ready-goods warehouse management, grade classification (Fresh / Seconds / Cut Pieces), and location tags.
-6. **AI Textile Copilot (`/ai-copilot`)**: AI assistant for stock lookup, margin calculations, shrinkage analysis, and automated report generation.
+6. **Operations Intelligence (`/analytics`)**: Real-time stock lookup, margin calculations, shrinkage analysis, and automated report generation.
 7. **Client CRM & Accounts (`/crm`)**: Customer credit limit tracking, ledger reconciliation, order history, and payment locks.
 8. **Financial Analytics & P&L (`/analytics`)**: Cost per meter breakdown, mill processing expenses, profit margins, and yarn rate fluctuations.
 9. **Multi-Tenant & Security (`/security`)**: Role-based access control (RBAC), multi-branch permissions, and encrypted data isolation.
@@ -180,7 +180,7 @@ Buyer credit terms & history     P&L, mill costs & rate audit      Role-based ac
    ```
 
 4. **Open in browser**:
-   Navigate to [http://localhost:3000](http://localhost:3000) to view the live Resham AI application and interactive studio.
+   Navigate to [http://localhost:3000](http://localhost:3000) to view the live Resham application and interactive studio.
 
 ### Production Build & Linting
 
@@ -207,7 +207,7 @@ febflow/
 │   ├── layout.tsx              # Root Layout Shell
 │   └── page.tsx                # Main Landing & Interactive Platform Page
 ├── components/                 # React UI Components
-│   ├── ai-section.tsx          # AI Textile Copilot Showcase
+│   ├── ai-section.tsx          # Operations Intelligence Showcase
 │   ├── demo-faq-section.tsx    # Demo Booking & FAQ Accordion
 │   ├── hero.tsx                # Editorial Hero & Interactive Studio Trigger
 │   ├── navbar.tsx              # Navigation & Brand Bar
@@ -229,7 +229,7 @@ febflow/
 
 ## 📄 Document Engine (PDF / QR Code / Excel)
 
-Resham AI features a built-in document generation preview engine:
+Resham features a built-in document generation preview engine:
 - **Official Sales Order PDFs**: Generates structured, GST-compliant customer confirmations.
 - **Yarn Purchase Order PDFs**: Formats vendor raw material contracts with terms & specifications.
 - **Grey Material QR Stickers**: Renders roll-level QR codes (`GRY-LOT-2026-8890`) for rapid barcode scanning in warehouses.
@@ -247,7 +247,7 @@ Resham AI features a built-in document generation preview engine:
 
 ## 🤝 Contributing & License
 
-Contributions are welcome! Please feel free to open issues or submit pull requests to enhance Resham AI.
+Contributions are welcome! Please feel free to open issues or submit pull requests to enhance Resham.
 
 This project is licensed under the **MIT License**.
 
@@ -256,4 +256,3 @@ This project is licensed under the **MIT License**.
 <p align="center">
   Developed with ❤️ for the Global Textile Industry.
 </p>
-

@@ -44,7 +44,7 @@ export default function FinalCTA() {
                 The New Standard in Textile Operations.
               </h2>
               <p className="text-sm md:text-base text-[#D0C5B8] max-w-xl">
-                Experience RESHAM AI with your actual operational data and see how it transforms your textile business.
+                Experience RESHAM with your actual operational data and see how it transforms your textile business.
               </p>
             </div>
 

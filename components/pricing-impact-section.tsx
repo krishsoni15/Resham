@@ -74,7 +74,7 @@ export default function PricingAndImpactSection() {
             <div className="flex justify-between text-[11px] font-semibold text-slate-600">
               <span>20 Small Boutique Orders</span>
               <span>250 Medium Mill Orders</span>
-              <span>500+ Large Integrated Mill</span>
+              <span>50+ Team & Mill Operations</span>
             </div>
           </div>
 

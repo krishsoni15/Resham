@@ -26,7 +26,7 @@ const serifFont = Playfair_Display({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://resham-ai.vercel.app"),
-  title: "RESHAM AI — The New Standard in Textile Operations",
+  title: "RESHAM — The New Standard in Textile Operations",
   description:
     "The New Standard in Textile Operations. The connected operating system for modern textile manufacturers, mill processing, and fabric traders. Manage orders, production, materials, inventory, purchasing, and dispatches in one system.",
   icons: {
@@ -48,17 +48,17 @@ export const metadata: Metadata = {
     "textile supplier management",
   ],
   openGraph: {
-    title: "RESHAM AI — The New Standard in Textile Operations",
+    title: "RESHAM — The New Standard in Textile Operations",
     description:
       "The New Standard in Textile Operations. The connected operating system for modern textile manufacturers, mill processing, and fabric traders.",
     type: "website",
     locale: "en_IN",
-    siteName: "RESHAM AI",
+    siteName: "RESHAM",
     images: [{ url: "/images/logo.png", width: 512, height: 512, alt: "RESHAM Logo" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "RESHAM AI — The New Standard in Textile Operations",
+    title: "RESHAM — The New Standard in Textile Operations",
     description:
       "The New Standard in Textile Operations. The connected operating system for modern textile manufacturers, mill processing, and fabric traders.",
     images: ["/images/logo.png"],

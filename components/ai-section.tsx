@@ -53,7 +53,7 @@ export default function AISection() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
           <span className="text-overline" style={{ color: "var(--color-accent-muted)" }}>
-            RESHAM AI
+            RESHAM
           </span>
           <h2 className="text-h2">{ai.headline}</h2>
           <p className="text-body-lg">{ai.description}</p>
@@ -91,7 +91,7 @@ export default function AISection() {
                 color: "var(--color-text-on-dark)",
               }}
             >
-              RESHAM AI
+              RESHAM Assistant
             </span>
             <span className="badge" style={{ fontSize: "0.625rem" }}>
               BETA

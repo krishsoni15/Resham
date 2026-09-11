@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
+  ArrowUpRight,
   Play,
   Globe,
   Smartphone,
@@ -12,135 +13,176 @@ import {
   X,
 } from "lucide-react";
 import Image from "next/image";
+import { FaAndroid } from "react-icons/fa";
 import RealAppDashboardPreview from "@/components/real-app-dashboard-preview";
 
 export default function Hero() {
   const [showInteractiveStudio, setShowInteractiveStudio] = useState(false);
+  const [activePlatformInfo, setActivePlatformInfo] = useState<string | null>(null);
+
+  const platformDetails: Record<string, string> = {
+    Web: "Cloud Web App — Optimized for Desktop & Laptops",
+    iOS: "Native iOS App — Optimized for iPhone & iPad",
+    Android: "Native Android App — Optimized for Phones & Tablets",
+    PWA: "Progressive Web App — Installable on Windows, Mac & Linux",
+  };
+
+  const handlePlatformClick = (key: string) => {
+    setActivePlatformInfo((prev) => (prev === key ? null : key));
+  };
 
   return (
-    <section className="relative min-h-screen flex items-center pt-28 pb-20 md:pt-36 md:pb-24 overflow-hidden bg-[#F7F5F0]">
+    <section className="relative min-h-screen flex items-start lg:items-center pt-28 sm:pt-36 lg:pt-36 pb-12 sm:pb-16 lg:pb-24 overflow-hidden bg-[#F7F5F0]">
       {/* =========================================================================
-          FULL SECTION BACKGROUND IMAGE (The exact photography from User Request)
+          RESPONSIVE HERO BACKGROUND IMAGES (Desktop Widescreen lg: 1024px+ vs Mobile & Tablet < 1024px)
          ========================================================================= */}
       <div className="absolute inset-0 z-0 overflow-hidden w-full h-full">
+        {/* Mobile & Portrait Tablet Background Image (< 1024px) */}
         <Image
-          src="/images/hero-bg-full.png"
-          alt="RESHAM Luxury Editorial Studio Scene"
+          src="/images/hero-bg-mobile.png"
+          alt="RESHAM Luxury Editorial Studio Scene Mobile"
           fill
           priority
           quality={100}
-          className="object-cover object-center lg:object-right"
+          className="lg:hidden object-cover object-bottom"
+        />
+        {/* Widescreen Desktop & Landscape Background Image (1024px+) */}
+        <Image
+          src="/images/hero-bg-desktop.png"
+          alt="RESHAM Luxury Editorial Studio Scene Desktop"
+          fill
+          priority
+          quality={100}
+          className="hidden lg:block object-cover object-center xl:object-right"
         />
       </div>
 
       <div className="section-container relative z-10 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
 
           {/* =========================================================================
-              LEFT COLUMN: Hero Text Content (100% Crisp & Legible Across All Screens)
+              LEFT/CENTER COLUMN: Hero Text Content (Centered on Mobile/Tablet, Left on Desktop)
              ========================================================================= */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-5 xl:col-span-5 space-y-6 text-left max-w-md lg:max-w-[440px] bg-white/75 lg:bg-transparent backdrop-blur-xl lg:backdrop-blur-none p-6 sm:p-8 lg:p-0 rounded-3xl border border-white/90 lg:border-none shadow-2xl shadow-stone-900/10 lg:shadow-none z-10"
+            className="col-span-12 lg:col-span-6 xl:col-span-6 space-y-2.5 sm:space-y-4 xl:space-y-6 text-center lg:text-left flex flex-col items-center lg:items-start justify-center max-w-lg lg:max-w-[540px] xl:max-w-[620px] mx-auto lg:mx-0 p-0 z-10"
           >
-            {/* Category Pill Tag */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/90 lg:bg-[#9A481B]/10 border border-[#9A481B]/25 text-[#9A481B] text-xs font-bold tracking-[0.16em] uppercase shadow-xs backdrop-blur-md">
-              <Sparkles className="w-3.5 h-3.5 text-[#9A481B] animate-pulse" />
-              <span>FROM YARN TO YOUR NEXT GROWTH</span>
+            {/* Eyebrow Tag: BUILT FOR MODERN TEXTILE BUSINESSES */}
+            <div className="text-[10px] sm:text-xs font-bold text-[#B84A1D] tracking-[0.16em] uppercase">
+              BUILT FOR MODERN TEXTILE BUSINESSES
             </div>
 
-            {/* Main Headline in One Row with Serif Italic 'Operations.' */}
-            <h1 className="text-3xl sm:text-4xl lg:text-[2.5rem] xl:text-[2.8rem] font-extrabold text-[#0F172A] tracking-tight leading-[1.12]">
-              The New Standard <br className="hidden sm:inline" />
-              in Textile{" "}
-              <span className="font-serif italic font-normal text-[#9A481B] border-b-2 border-[#9A481B]/30 pb-0.5 whitespace-nowrap">
-                Operations.
+            {/* Main Headline (2-Line Desktop & Tablet, Fully Responsive Mobile) */}
+            <h1 className="text-[1.65rem] sm:text-4xl lg:text-[3.1rem] xl:text-[3.5rem] font-extrabold text-[#1C1917] tracking-tight leading-[1.1] md:leading-[1.08] text-center lg:text-left">
+              <span className="block sm:inline-block sm:whitespace-nowrap">The New Standard</span>{" "}
+              <span className="block sm:inline-block sm:whitespace-nowrap">
+                in <span className="font-serif italic font-normal text-[#B84A1D]">Textile Operations.</span>
               </span>
             </h1>
 
-            {/* Sub-description - Concise, Highly Legible, Perfectly Scaled */}
-            <p className="text-sm sm:text-base text-[#334155] font-semibold leading-relaxed max-w-sm sm:max-w-md">
-              Unify yarn procurement, roll inventory, dyeing dispatches, and real-time executive analytics in one seamless operating system.
+            {/* Sub-description */}
+            <p className="text-[11px] sm:text-sm md:text-base text-[#4A4540] font-medium leading-relaxed max-w-xs sm:max-w-md xl:max-w-lg text-center lg:text-left mx-auto lg:mx-0">
+              The intelligent operating system for modern textile enterprises—unifying yarn procurement, fabric roll tracking, dyeing batches, and live factory analytics in one seamless platform.
             </p>
 
             {/* Primary Action Buttons */}
-            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
+            <div className="pt-0.5 sm:pt-1 flex flex-row flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-3 w-full">
               <motion.a
-                whileHover={{ scale: 1.03, boxShadow: "0 20px 30px -10px rgba(154, 72, 27, 0.35)" }}
+                whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 href="#demo-form"
-                className="btn-primary text-sm sm:text-base py-3.5 px-7 rounded-xl shadow-lg shadow-[#9A481B]/25 transition-all duration-300 flex items-center justify-center gap-2 group whitespace-nowrap"
+                className="px-4 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-extrabold text-white rounded-full bg-[#B84A1D] hover:bg-[#A03E16] shadow-md shadow-[#B84A1D]/25 transition-all flex items-center justify-center gap-2.5 group whitespace-nowrap"
               >
-                <span>Book a 21-Day Demo</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <span>Get Free Demo</span>
+                <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-white/20 text-white flex items-center justify-center group-hover:bg-white group-hover:text-[#B84A1D] transition-colors duration-300">
+                  <ArrowUpRight className="w-2.5 h-2.5 sm:w-3 sm:h-3 stroke-[2.5] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
+                </div>
               </motion.a>
 
               <motion.a
-                whileHover={{ scale: 1.04 }}
+                whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 href="https://appresham.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-secondary text-base sm:text-lg py-4 px-6 rounded-2xl font-bold flex items-center justify-center gap-2.5 border-[#E0D8CB] bg-white/95 backdrop-blur-md hover:bg-white shadow-xs hover:shadow-md transition-all group whitespace-nowrap"
+                className="px-4 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-extrabold text-[#1C1917] rounded-full border border-[#E6DFD5] bg-white/95 hover:bg-[#FAF8F5] shadow-2xs transition-all flex items-center justify-center gap-2.5 group whitespace-nowrap"
               >
-                <div className="w-7 h-7 rounded-full bg-[#9A481B]/10 text-[#9A481B] flex items-center justify-center group-hover:bg-[#9A481B] group-hover:text-white transition-colors">
-                  <Play className="w-3.5 h-3.5 fill-current ml-0.5" />
+                <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-[#B84A1D]/10 text-[#B84A1D] flex items-center justify-center group-hover:bg-[#B84A1D] group-hover:text-white transition-colors duration-300">
+                  <Play className="w-2 sm:w-2.5 h-2 sm:h-2.5 fill-current ml-0.5 group-hover:scale-110 transition-transform duration-300" />
                 </div>
-                <span className="font-bold text-[#0F172A]">Explore Live Platform</span>
+                <span>Explore Live Platform</span>
               </motion.a>
             </div>
 
-            {/* Platform Badges (Web, Android, iOS, PWA) */}
-            <div className="pt-6 border-t border-[#E6DFD5]/90 flex flex-wrap items-center gap-3">
-              <motion.a
-                whileHover={{ y: -2, scale: 1.05 }}
-                href="https://appresham.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-white/95 backdrop-blur-md border border-[#E2D9CC] shadow-2xs transition-all text-decoration-none"
-              >
-                <Globe className="w-4 h-4 text-[#9A481B]" />
-                <span className="text-xs font-black tracking-wide text-[#0F172A]">Web</span>
-              </motion.a>
-              <motion.a
-                whileHover={{ y: -2, scale: 1.05 }}
-                href="https://appresham.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-white/95 backdrop-blur-md border border-[#E2D9CC] shadow-2xs transition-all text-decoration-none"
-              >
-                <Smartphone className="w-4 h-4 text-[#9A481B]" />
-                <span className="text-xs font-black tracking-wide text-[#0F172A]">Android</span>
-              </motion.a>
-              <motion.a
-                whileHover={{ y: -2, scale: 1.05 }}
-                href="https://appresham.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-white/95 backdrop-blur-md border border-[#E2D9CC] shadow-2xs transition-all text-decoration-none"
-              >
-                <svg viewBox="0 0 24 24" className="w-4 h-4 text-[#9A481B] fill-current">
-                  <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.02c.62-.75 1.04-1.79.92-2.83-.9.04-2 .6-2.64 1.34-.57.66-1.07 1.72-.94 2.74 1.01.08 2.04-.5 2.66-1.25z" />
-                </svg>
-                <span className="text-xs font-black tracking-wide text-[#0F172A]">iOS</span>
-              </motion.a>
-              <motion.a
-                whileHover={{ y: -2, scale: 1.05 }}
-                href="https://appresham.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-white/95 backdrop-blur-md border border-[#E2D9CC] shadow-2xs transition-all text-decoration-none"
-              >
-                <Layers className="w-4 h-4 text-[#9A481B]" />
-                <span className="text-xs font-black tracking-wide text-[#0F172A]">PWA</span>
-              </motion.a>
+            {/* Platform Badges (Interactive Liquid Glass Pill Bar with Floating Absolute Hover Tooltips) */}
+            <div className="pt-0.5 w-full flex justify-center lg:justify-start">
+              <div className="relative inline-flex flex-wrap items-center justify-center gap-2 sm:gap-3.5 px-4 sm:px-6 py-1.5 sm:py-2 rounded-full bg-white/35 hover:bg-white/50 backdrop-blur-xl border border-white/60 shadow-md shadow-stone-900/5 text-[10px] sm:text-xs font-black text-[#1C1917] transition-all duration-300">
+                {/* Specular Inner Glass Glint */}
+                <span className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/40 to-transparent pointer-events-none rounded-t-full" />
+
+                {/* Web Platform */}
+                <div className="relative group/badge">
+                  <button className="relative z-10 flex items-center gap-1.5 text-[#3A3531] hover:text-[#B84A1D] transition-colors cursor-pointer py-0.5">
+                    <Globe className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-current" />
+                    <span>Web</span>
+                  </button>
+                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2.5 hidden group-hover/badge:flex items-center gap-1.5 px-3 py-1 rounded-xl bg-[#1C1917]/95 backdrop-blur-md text-white text-[10px] font-semibold whitespace-nowrap shadow-xl border border-white/20 pointer-events-none z-30">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#B84A1D]" />
+                    <span>Cloud Web App — Desktop & Laptops</span>
+                  </div>
+                </div>
+
+                <span className="relative z-10 w-1 h-1 rounded-full bg-[#1C1917]/25" />
+
+                {/* iOS Platform */}
+                <div className="relative group/badge">
+                  <button className="relative z-10 flex items-center gap-1.5 text-[#3A3531] hover:text-[#B84A1D] transition-colors cursor-pointer py-0.5">
+                    <svg viewBox="0 0 24 24" className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-current">
+                      <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.02c.62-.75 1.04-1.79.92-2.83-.9.04-2 .6-2.64 1.34-.57.66-1.07 1.72-.94 2.74 1.01.08 2.04-.5 2.66-1.25z" />
+                    </svg>
+                    <span>iOS</span>
+                  </button>
+                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2.5 hidden group-hover/badge:flex items-center gap-1.5 px-3 py-1 rounded-xl bg-[#1C1917]/95 backdrop-blur-md text-white text-[10px] font-semibold whitespace-nowrap shadow-xl border border-white/20 pointer-events-none z-30">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#B84A1D]" />
+                    <span>Native iOS App — iPhone & iPad</span>
+                  </div>
+                </div>
+
+                <span className="relative z-10 w-1 h-1 rounded-full bg-[#1C1917]/25" />
+
+                {/* Android Platform */}
+                <div className="relative group/badge">
+                  <button className="relative z-10 flex items-center gap-1.5 text-[#3A3531] hover:text-[#B84A1D] transition-colors cursor-pointer py-0.5">
+                    <FaAndroid className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-current" />
+                    <span>Android</span>
+                  </button>
+                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2.5 hidden group-hover/badge:flex items-center gap-1.5 px-3 py-1 rounded-xl bg-[#1C1917]/95 backdrop-blur-md text-white text-[10px] font-semibold whitespace-nowrap shadow-xl border border-white/20 pointer-events-none z-30">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#B84A1D]" />
+                    <span>Native Android App — Phones & Tablets</span>
+                  </div>
+                </div>
+
+                <span className="relative z-10 w-1 h-1 rounded-full bg-[#1C1917]/25" />
+
+                {/* PWA Platform */}
+                <div className="relative group/badge">
+                  <button className="relative z-10 flex items-center gap-1.5 text-[#3A3531] hover:text-[#B84A1D] transition-colors cursor-pointer py-0.5">
+                    <Layers className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-current" />
+                    <span>PWA</span>
+                  </button>
+                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2.5 hidden group-hover/badge:flex items-center gap-1.5 px-3 py-1 rounded-xl bg-[#1C1917]/95 backdrop-blur-md text-white text-[10px] font-semibold whitespace-nowrap shadow-xl border border-white/20 pointer-events-none z-30">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#B84A1D]" />
+                    <span>Progressive Web App — Windows, Mac & Linux</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </motion.div>
 
-          {/* RIGHT COLUMN: Blank space so background laptop and phone imagery is fully visible */}
-          <div className="lg:col-span-7 xl:col-span-7 min-h-[350px] md:min-h-[480px] pointer-events-none" />
+          {/* RIGHT COLUMN: Blank space so background laptop and phone imagery is fully visible on wide screens */}
+          <div className="hidden lg:block lg:col-span-6 xl:col-span-6 min-h-[300px] lg:min-h-[420px] pointer-events-none" />
 
         </div>
       </div>

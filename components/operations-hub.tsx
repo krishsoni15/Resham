@@ -100,7 +100,7 @@ export default function OperationsHub() {
                 }`}
             >
               <Bot className="w-3.5 h-3.5" />
-              <span>RESHAM AI Assistant</span>
+              <span>RESHAM Assistant</span>
             </button>
           </div>
         </div>
@@ -277,7 +277,7 @@ export default function OperationsHub() {
           </div>
         )}
 
-        {/* Tab 4: RESHAM AI Assistant Simulator */}
+        {/* Tab 4: RESHAM Assistant Simulator */}
         {activeTab === "ai" && (
           <div className="max-w-4xl mx-auto p-6 sm:p-8 rounded-2xl bg-slate-900 text-white border border-slate-800 shadow-2xl space-y-6">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-slate-800">
@@ -287,7 +287,7 @@ export default function OperationsHub() {
                 </div>
                 <div>
                   <h3 className="font-display font-bold text-lg text-white">
-                    RESHAM AI Copilot
+                    RESHAM Copilot
                   </h3>
                   <span className="text-xs text-amber-400 font-medium">
                     Ask natural questions in Plain English / Hindi

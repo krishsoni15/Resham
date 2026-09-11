@@ -66,7 +66,7 @@ export default function WorkflowSection() {
   ];
 
   return (
-    <section className="py-20 bg-[#FAF7F2] border-b border-[#E6DFD5] relative overflow-hidden">
+    <section id="product" className="py-20 bg-[#FAF7F2] border-b border-[#E6DFD5] relative overflow-hidden">
       {/* Background Subtle Textile Weave Line Texture */}
       <div
         className="absolute inset-0 opacity-[0.035] pointer-events-none"

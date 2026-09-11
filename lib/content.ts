@@ -499,7 +499,7 @@ export const pricing = {
         "Full inventory & procurement",
         "Up to 20 users",
         "Android & iOS access",
-        "RESHAM AI",
+        "RESHAM Assistant",
         "Real-time sync",
         "Priority support",
       ],
